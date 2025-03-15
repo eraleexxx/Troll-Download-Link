@@ -26,9 +26,11 @@
         </div>
 
         <div id="verificacion" style="display: none;"> <!-- Se oculta inicialmente -->
-            <h1>Preparando tu descarga...</h1>
-            <p>Por favor, espera <span id="contador">10</span> segundos.</p>
-            <button id="botonDescarga">Descargar</button>
+            <h1 style="display: none;">Preparando tu descarga...</h1> <!-- Se oculta esta línea -->
+            <div id="descargaSection" style="display: none; text-align: center;"> <!-- Sección de descarga centrada -->
+                <p>Por favor, espera <span id="contador">10</span> segundos.</p>
+                <button id="botonDescarga">Descargar</button>
+            </div>
         </div>
     </div>
 
@@ -59,8 +61,8 @@
         function verificarPassword() {
             let password = document.getElementById("passwordInput").value;
             if (password.trim() === "steamfreegames626") {  // Contraseña correcta
-                document.getElementById("passwordCheck").style.display = "none";
-                document.getElementById("verificacion").style.display = "block"; // Mostrar la sección de verificación
+                document.getElementById("passwordCheck").style.display = "none"; // Oculta la verificación
+                document.getElementById("verificacion").style.display = "block"; // Muestra la sección de verificación
 
                 // Iniciar contador
                 let segundos = 10;
@@ -72,9 +74,12 @@
                     contador.textContent = segundos;
                     if (segundos <= 0) {
                         clearInterval(intervalo);
-                        botonDescarga.style.display = "inline-block";
+                        botonDescarga.style.display = "inline-block"; // Muestra el botón de descarga
                     }
                 }, 1000);
+
+                // Mostrar la sección de descarga centrada
+                document.getElementById("descargaSection").style.display = "block";
 
                 // Redirigir al troll.html al hacer clic en descargar
                 botonDescarga.addEventListener("click", () => {
