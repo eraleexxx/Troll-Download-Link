@@ -4,54 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descarga en progreso...</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        #navbar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px;
-            color: white;
-        }
-        #navbar img {
-            width: 40px;
-            margin-right: 10px;
-        }
-        #verificacion {
-            display: none;
-        }
-        #botonDescarga {
-            display: none;
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-            background-color: green;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        #botonTxt {
-            margin-top: 20px;
-            padding: 10px 15px;
-            font-size: 16px;
-            background-color: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        footer {
-            margin-top: 50px;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            position: relative;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -60,21 +13,23 @@
         <h1>FreeFileHoster</h1>
     </div>
 
-    <h1>Verificación requerida</h1>
-    <p>Ingresa la contraseña para continuar:</p>
-    
-    <!-- Botón para descargar el TXT -->
-    <button id="botonTxt" onclick="descargarTxt()">Descargar contraseña</button>
+    <div class="content">
+        <h1>Verificación requerida</h1>
+        <p>Ingresa la contraseña para continuar:</p>
+        
+        <!-- Botón para descargar el TXT -->
+        <button id="botonTxt" onclick="descargarTxt()">Descargar contraseña</button>
 
-    <div id="passwordCheck">
-        <input type="password" id="passwordInput" placeholder="Escribe la contraseña">
-        <button onclick="verificarPassword()">Enviar</button>
-    </div>
+        <div id="passwordCheck">
+            <input type="password" id="passwordInput" placeholder="Escribe la contraseña">
+            <button onclick="verificarPassword()">Enviar</button>
+        </div>
 
-    <div id="verificacion">
-        <h1>Preparando tu descarga...</h1>
-        <p>Por favor, espera <span id="contador">10</span> segundos.</p>
-        <button id="botonDescarga">Descargar</button>
+        <div id="verificacion">
+            <h1>Preparando tu descarga...</h1>
+            <p>Por favor, espera <span id="contador">10</span> segundos.</p>
+            <button id="botonDescarga">Descargar</button>
+        </div>
     </div>
 
     <script>
