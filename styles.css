@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5; /* Color de fondo suave */
+    color: #333; /* Color de texto oscuro */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el footer esté al final */
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6200ea; /* Color de fondo del navbar */
+    padding: 10px;
+    color: white;
+    position: fixed; /* Fijo en la parte superior */
+    top: 0;
+    width: 100%;
+    z-index: 10; /* Asegura que esté encima de otros elementos */
+}
+
+#navbar img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.content {
+    flex: 1; /* Permite que el contenido llene el espacio */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px; /* Para evitar que el contenido se superponga con el navbar */
+}
+
+footer {
+    margin-top: auto; /* Asegura que el footer esté al final */
+    padding: 10px;
+    background-color: #6200ea; /* Color de fondo del footer */
+    color: white;
+    text-align: center;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #03dac5; /* Color de fondo de los botones */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #018786; /* Color al pasar el mouse */
+}
+
+input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc; /* Bordes suaves */
+    border-radius: 5px; /* Bordes redondeados */
+    margin-top: 10px;
+}
