@@ -34,15 +34,7 @@
     </div>
 
     <script>
-        // Descargar automáticamente el archivo TXT al entrar en la web
-        window.onload = function() {
-            const contenido = "Contraseña: freedownload2313";
-            const blob = new Blob([contenido], { type: "text/plain" });
-            const enlace = document.createElement("a");
-            enlace.href = URL.createObjectURL(blob);
-            enlace.download = "contraseña.txt";
-            enlace.click();
-        };
+        
 
         // Botón para descargar el TXT manualmente y luego desaparecer
         function descargarTxt() {
