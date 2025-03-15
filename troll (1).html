@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Troleado Puto</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      requestFullScreen();
+      playAudio();
+    });
+
+    function requestFullScreen() {
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen) {
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen) {
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) {
+        elem.msRequestFullscreen();
+      }
+    }
+
+    function playAudio() {
+      const iframe = document.getElementById("trollAudio");
+      const audio = document.getElementById("backupAudio");
+      const text = document.getElementById("trolledText");
+
+      // Ocultar el texto al inicio
+      text.style.display = "none";
+
+      // Iniciar el iframe (muted primero para evitar bloqueos)
+      iframe.src = "https://www.youtube.com/embed/tPq46AEXwNk?autoplay=1&loop=1&mute=1";
+
+      setTimeout(() => {
+        // Intentar activar el sonido del iframe (puede que el navegador lo ignore)
+        iframe.contentWindow?.postMessage('{"event":"command","func":"unMute","args":""}', "*");
+
+        // Si el iframe no suena, usar el MP3
+        audio.play().then(() => {
+          text.style.display = "block"; // Mostrar "Trolled" cuando el audio empieza
+        }).catch(() => {
+          console.log("Autoplay bloqueado, esperando interacción...");
+        });
+
+      }, 3000);
+    }
+
+    document.addEventListener("click", () => {
+      requestFullScreen();
+      playAudio();
+    });
+  </script>
+</head>
+
+<body>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    #trolledText {
+      display: none; /* Oculto al inicio */
+    }
+  </style>
+
+  <!-- Texto oculto hasta que el audio se reproduzca -->
+  <div id="trolledText">Trolled</div>
+
+  <!-- Iframe con el video de YouTube -->
+  <iframe id="trollAudio" width="0" height="0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  <!-- Audio de respaldo por si YouTube no funciona -->
+  <audio id="backupAudio" src="sonido.mp3" loop></audio>
+
+</body>
+
+</html>
