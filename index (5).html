@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descarga en progreso...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #contador {
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+        }
+        #botonDescarga {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Preparando tu descarga...</h1>
+    <p>Por favor, espera <span id="contador">10</span> segundos.</p>
+    <button id="botonDescarga">Descargar</button>
+
+    <script>
+        // Contador regresivo
+        let segundos = 10;
+        const contador = document.getElementById("contador");
+        const botonDescarga = document.getElementById("botonDescarga");
+
+        const intervalo = setInterval(() => {
+            segundos--;
+            contador.textContent = segundos;
+            if (segundos <= 0) {
+                clearInterval(intervalo);
+                botonDescarga.style.display = "inline-block";
+            }
+        }, 1000);
+
+        // Obtener el nombre desde la URL
+        const url = window.location.pathname;
+        const partes = url.split("/");
+        let nombreArchivo = partes.pop() || "archivo"; // Obtiene el último segmento de la URL
+        nombreArchivo = nombreArchivo.replace(/_/g, " "); // Convierte "_" en espacios
+
+        // Redirigir al archivo troll.html con el nombre modificado
+        botonDescarga.addEventListener("click", () => {
+            window.location.href = `troll.html?name=${encodeURIComponent(nombreArchivo)}`;
+        });
+    </script>
+
+</body>
+</html>
