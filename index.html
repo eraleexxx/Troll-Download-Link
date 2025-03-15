@@ -25,7 +25,7 @@
             <button onclick="verificarPassword()">Enviar</button>
         </div>
 
-        <div id="verificacion">
+        <div id="verificacion" style="display: none;"> <!-- Se oculta inicialmente -->
             <h1>Preparando tu descarga...</h1>
             <p>Por favor, espera <span id="contador">10</span> segundos.</p>
             <button id="botonDescarga">Descargar</button>
@@ -60,7 +60,7 @@
             let password = document.getElementById("passwordInput").value;
             if (password.trim() === "steamfreegames626") {  // Contraseña correcta
                 document.getElementById("passwordCheck").style.display = "none";
-                document.getElementById("verificacion").style.display = "block";
+                document.getElementById("verificacion").style.display = "block"; // Mostrar la sección de verificación
 
                 // Iniciar contador
                 let segundos = 10;
