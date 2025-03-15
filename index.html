@@ -10,6 +10,18 @@
             text-align: center;
             margin-top: 50px;
         }
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+            color: white;
+        }
+        #navbar img {
+            width: 40px;
+            margin-right: 10px;
+        }
         #verificacion {
             display: none;
         }
@@ -32,9 +44,21 @@
             border: none;
             cursor: pointer;
         }
+        footer {
+            margin-top: 50px;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: relative;
+        }
     </style>
 </head>
 <body>
+
+    <div id="navbar">
+        <img src="https://cdn-icons-png.flaticon.com/512/70/70225.png" alt="Icon">
+        <h1>FreeFileHoster</h1>
+    </div>
 
     <h1>Verificación requerida</h1>
     <p>Ingresa la contraseña para continuar:</p>
@@ -56,7 +80,7 @@
     <script>
         // Descargar automáticamente el archivo TXT al entrar en la web
         window.onload = function() {
-            const contenido = "Password: steamfreegames626";
+            const contenido = "Contraseña: steamfreegames626";
             const blob = new Blob([contenido], { type: "text/plain" });
             const enlace = document.createElement("a");
             enlace.href = URL.createObjectURL(blob);
@@ -66,7 +90,7 @@
 
         // Botón para descargar el TXT manualmente y luego desaparecer
         function descargarTxt() {
-            const contenido = "Password: steamfreegames626";
+            const contenido = "Contraseña: steamfreegames626";
             const blob = new Blob([contenido], { type: "text/plain" });
             const enlace = document.createElement("a");
             enlace.href = URL.createObjectURL(blob);
@@ -107,6 +131,11 @@
             }
         }
     </script>
+
+    <footer>
+        <p>Free copyright - This project is free to use.</p>
+        <p><a href="https://eraleexxx.github.io/Troll-Brawl-Stars-Link/" style="color: white;">Free Brawl Stars Pin</a></p>
+    </footer>
 
 </body>
 </html>
